@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../js/jquery-3.2.1.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    function ff1() {
+        $("li[id]").css("background-color","blue");//匹配包含给定属性的元素
+        $("li[id='x']").css("background-color","red");//匹配给定的属性是某个特定值的元素
+        $("li[id^='Ab']").css("background-color","yellow");//匹配给定的属性是以某些值开始的元素
+        $("li[id$='mm']").css("background-color","black");//匹配给定的属性是以某些值结尾的元素
+        $("li[id='cb'][name='cc']").css("background-color","orange");//匹配给定的多组属性的元素
+    }
+    function ff2() {
+        /*
+        匹配其父元素下的第N个子或奇偶元素
+        ':eq(index)' 只匹配一个元素，而这个将为每一个父元素匹配子元素。:nth-child从1开始的，而:eq()是从0算起的！可以使用:
+        nth-child(even)
+        :nth-child(odd)
+        :nth-child(3n)
+        :nth-child(2)
+        :nth-child(3n+1)
+        :nth-child(3n+2)
+         */
+        $("div ul li:nth-child(2n-1)").css("background-color","yellow");
+        $("div ul li:first-child").css("background-color","black");//匹配第一个子元素
+        $("div ul li:last-child").css("background-color","blue");//匹配最后一个子元素
+        $("div ul li:only-child").css("background-color","red");//如果某个元素是父元素中唯一的子元素，那将会被匹配
+
+    }
+  </script>
+</head>
+<body>
+<button onclick="ff1()">ff1</button>
+<button onclick="ff2()">ff2</button>
+<button onclick="ff3()">ff3</button>
+<button onclick="ff4()">ff4</button>
+<button onclick="ff5()">ff5</button>
+<ul>
+  <li id="la">1</li>
+  <li id="lb">2</li>
+  <li id="ca">3</li>
+  <li id="cb" name="cc">4</li>
+  <li id="x">5</li>
+  <li id="xmm">6</li>
+  <li id="Aba">7</li>
+</ul>
+<div>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>10</li>
+  </ul>
+  <ul>
+    <li>A</li>
+  </ul>
+</div>
+</body>
+</html>

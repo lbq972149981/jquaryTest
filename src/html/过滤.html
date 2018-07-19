@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../js/jquery-3.2.1.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    function ff1() {
+        $("tr:even").css("background-color","yellow");//匹配所有索引值为偶数的元素，从 0 开始计数
+        $("tr:odd").css("background-color","blue");//匹配所有索引值为奇数的元素，从 0 开始计数
+        $("tr:eq(3)").css("background-color","blue");//匹配所有索引值为等于，从 0 开始计数
+        $("tr:gt(8)").css("background-color","blue");//匹配所有索引值为大于，从 0 开始计数
+        $("tr:lt(2)").css("background-color","blue");//匹配所有索引值为小于，从 0 开始计数
+        $("tr:first").css("background-color","black");//匹配找到的第一个元素
+        $("tr:last").css("background-color","green");//匹配找到的最后一个元素
+        $("tr:not(.cls)").css("background-color","white");//排除
+    }
+    function ff2() {
+        $(":header").css("background-color","red");//h标签
+        $("h1:contains('2')").css("background-color","blue");//包含
+    }
+    function ff3() {
+        $("td:empty").html("wwwwwwwwww")//找到为空的tr
+        $("ul:has('#l4')").html("wwwwwwwwww")//拥有#l4的ul
+    }
+    function ff4() {
+        $("td:parent").html("wwwwwwwwww")//查找所有含有子元素或者文本的 td 元素
+        $("table:parent").attr("border","4")//查找所有含有子元素或者文本的 table 元素
+    }
+    function ff5() {
+        /*
+        $($("input:hidden").get(0)).val()  val()指动态值
+        $($("input:visible").get(0)).attr("value") 指标签中的默认值
+         */
+        console.log($($("input:hidden").get(0)).val())//匹配所有不可见元素，或者type为hidden的元素
+        console.log($($("input:visible").get(0)).val())//匹配所有的可见元素
+
+    }
+  </script>
+</head>
+<body>
+<input type="text" name="name" value="">
+<h1>Header 1</h1>
+<p>Contents 1</p>
+<h1>Header 2</h1>
+<h2>Header 3</h2>
+<p>Contents 2</p>
+<button onclick="ff1()">ff1</button>
+<button onclick="ff2()">ff2</button>
+<button onclick="ff3()">ff3</button>
+<button onclick="ff4()">ff4</button>
+<button onclick="ff5()">ff5</button>
+<table id="tb">
+  <tr><td>Header 0</td></tr>
+  <tr><td>Value 1</td></tr>
+  <tr><td>Value 2</td></tr>
+  <tr><td>Value 3</td></tr>
+  <tr><td>Value 4</td></tr>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+  <tr class="cls"><td>Value 7</td></tr>
+  <tr class="cls"><td>Value 8</td></tr>
+  <tr class="cls"><td>Value 9</td></tr>
+  <tr><td></td></tr>
+</table>
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li id="l4">4</li>
+</ul>
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+</ul>
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+</ul>
+<input type="hidden" name="name1" value="123456">
+</body>
+</html>

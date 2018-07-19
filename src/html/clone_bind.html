@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../js/jquery-3.2.1.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    function copy_func(e) {
+        //true 克隆后的对象 也可以触发绑定时间
+        $("#id").clone(true).insertBefore($(e));
+    }
+
+    window.onload = function () {
+        $("#id").bind("click",function () {
+            console.log("hello")
+        })
+    }
+  </script>
+</head>
+<body>
+<button id="id">绑定_被复制</button>
+<button onclick="copy_func(this)">之前复制</button>
+</body>
+</html>

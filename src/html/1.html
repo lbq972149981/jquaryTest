@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../js/jquery-3.2.1.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    /*
+    基本选择器：
+    $("#myDiv");
+    $(".myClass");
+    $("div");
+    $("*")
+    $("div,span,p.myClass")
+     */
+      function ff1(){
+          //习惯命名$+变量名
+          var $a = $("#a");
+          //控制台打印日志
+          console.log($a.html());
+          $a.html("google");
+          console.log($("li").length);
+          $($("li").get(0)).css("color","yellow");
+          //$("li").get()[2])为js对象，在将其转换为jquary对象
+          $($("li").get()[2]).css("background-color","yellow");
+      }
+      function ff2() {
+          //层级选择
+          /*
+          $("ul .cl1") ul 的子子孙孙
+          $("ul>.cl1") ul 的子
+          $("div+input") div的下一个input，如果不是则不行
+          $("div~input") div的之下所有input
+           */
+          console.log($("ul .cl1").length);
+          $("ul .cl1").css("background-color","yellow")
+          $("div+input").css("background-color","yellow")
+          $("div~input").css("background-color","yellow")
+      }
+  </script>
+</head>
+<body>
+<div id="div1"></div>
+<input type="text">
+<a id="a" href="www.baidu.com">baidu</a>
+<ul>
+  <li class="cl1">中国</li>
+  <li>美国</li>
+  <li class="cl1">日本</li>
+  <li>英国</li>
+  <li class="cl1">苏联</li>
+</ul>
+<input type="text" value="liu">
+<button onclick="ff2()">确认</button>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../js/jquery-3.2.1.js" type="text/javascript"></script>
+  <script type="text/javascript">
+/*    $(function () {
+       console.log("wwwwwwwwwwwwwww")
+        alert("asdd")
+    });
+    $(function () {
+        console.log("MMMMMMMMMMMMMM")
+        alert("asdasdwqfweefsadsd")
+    });*/
+    function func_1() {
+        alert("AAAAA")
+    }
+    function func_2() {
+        alert("BBBBB")
+    }
+    function func_unbind() {
+        $("#id").unbind("click",func_1);
+    }
+    $(document).ready(function () {
+        $("#id").one("click",func_1);
+        $("#id").bind("click",func_2);
+    });
+  </script>
+</head>
+<body>
+<button id="id">绑定</button>
+<button onclick="func_unbind()">解绑</button>
+</body>
+</html>

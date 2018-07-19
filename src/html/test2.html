@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../js/jquery-3.2.1.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    var temp =null;
+      function addfun() {
+          var $name = $("#name").val();
+          var $sex = $("#sex").val();
+          var $age = $("#age").val();
+          var i ;
+          if($("table tr").length==1){
+              i=1;
+          }else {
+              i=parseInt($("tr:last-child").attr("id"))+1;
+          }
+          var html ="<tr id='"+i+"'><td width='150px'>"+$name+"</td>"+"<td width='150px'>"+$sex+"</td>"+"<td width='150px'>"+$age+"</td><td><button onclick='del("+i+")' style='width: 70px' >删除</button><button style='width: 70px' onclick='update("+i+")' >修改</button></td></tr>";
+          $("table").append(html);
+          del(temp);
+      }
+      function del(e) {
+          $("#"+e).remove();
+      }
+      function update(e){
+          temp = e;
+          var name = $($("#"+e).find("td").get(0)).html();
+          var sex = $($("#"+e).find("td").get(1)).html();
+          var age = $($("#"+e).find("td").get(2)).html();
+          var $name = $("input[id='name']");
+          var $sex = $("input[id='sex']");
+          var $age = $("input[id='age']");
+          $name.val(name);
+          $sex.val(sex);
+          $age.val(age);
+      }
+
+  </script>
+</head>
+<body>
+姓名:<input type="text" id="name">
+性别:<input type="text" id="sex">
+年龄:<input type="text" id="age">
+<button onclick="addfun()">保存</button>
+<br>
+<br>
+<br>
+<table id="tb" border="1">
+  <tr><td width="150">姓名</td><td width="150">性别</td><td width="150">年龄</td><td width="140">操作</td></tr>
+</table>
+</body>
+</html>

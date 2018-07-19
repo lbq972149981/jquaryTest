@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../js/jquery-3.2.1.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    function ff1() {
+        $($("li").get(0)).append("hello")
+        $($("li").get(1)).prepend("hello")
+//        $($("li").get(2)).appendTo("div")
+//        $($("li").get(3)).prependTo("div")
+//        $($("li").get(4)).after("<b>123</b>")
+//        $($("li").get(5)).before("<c>456</c>")
+//        $($("li").get(6)).insertAfter("div")
+//        $($("li").get(7)).insertBefore("div")
+        $($("li").get(8)).wrap("div")
+    }
+  </script>
+<body>
+<button onclick="ff1()">ff1</button>
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+  <li>6</li>
+  <li>7</li>
+  <li>8</li>
+  <li>9</li>
+  <li>10</li>
+</ul>
+<div><div></div></div>
+</body>
+</html>
